@@ -25,26 +25,38 @@ namespace LuftbornRepo.API.Controllers
         //    Department dept = _departmentRepository.GetById(2);
         //    return Ok(dept);
         //}
-        [HttpGet]
-        public async Task<IActionResult> GetByIdAsync()
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetByIdAsync(int id)
         {
-            Department dept = await _departmentRepository.GetByIdAsync(2);
+            Department dept = await _departmentRepository.GetByIdAsync(id);
             return Ok(dept);
         }
-        [HttpGet("GetALL")]
+        [HttpGet]
         public async Task<IEnumerable<Department>> GetAllAsync()
         {
             return await _departmentRepository.GetAllAsync();
         }
-        [HttpGet("GetOrdered")]
-        public IActionResult GetOrdered()
+        //[HttpGet("GetOrdered")]
+        //public IActionResult GetOrdered(string str)
+        //{
+        //    return Ok(_departmentRepository.FindAllAsync(b => b.Name.Contains(str), b => b.id,OrderBy.Descending));
+        //}
+        [HttpPost]
+        public  IActionResult AddOne(Department dpt)
         {
-            return Ok(_departmentRepository.FindAllAsync(b => b.Name.Contains("HR"), b => b.id,OrderBy.Descending));
+            return Ok( _departmentRepository.Add(dpt));
         }
-        [HttpPost("AddOne")]
-        public  IActionResult AddOne()
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
         {
-            return Ok( _departmentRepository.Add(new Department { Name = "PR"}));
+            return Ok(await _departmentRepository.Delete(id));
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(int id,Department dpt)
+        {
+            return Ok(await _departmentRepository.Put(id, dpt));
         }
     }
 }

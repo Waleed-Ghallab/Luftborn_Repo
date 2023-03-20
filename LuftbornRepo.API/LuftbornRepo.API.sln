@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuftbornRepo.API", "LuftbornRepo.API.csproj", "{7D31442E-EF83-43C9-ACB3-0A40E95F6C37}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LuftbornRepo.API", "LuftbornRepo.API.csproj", "{7D31442E-EF83-43C9-ACB3-0A40E95F6C37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL.EF", "..\DAL.EF\DAL.EF.csproj", "{FDC98CBC-C202-483D-9217-CAE292A0818C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL.EF", "..\DAL.EF\DAL.EF.csproj", "{FDC98CBC-C202-483D-9217-CAE292A0818C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modelinterface.Core", "..\Modelinterface.Core\Modelinterface.Core.csproj", "{58C529D0-B196-4894-93AE-086D9D985D1D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Modelinterface.Core", "..\Modelinterface.Core\Modelinterface.Core.csproj", "{58C529D0-B196-4894-93AE-086D9D985D1D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

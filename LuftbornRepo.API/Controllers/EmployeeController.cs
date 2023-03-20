@@ -23,31 +23,47 @@ namespace LuftbornRepo.API.Controllers
         //    Employee emp= _employeeRepository.GetById(2);
         //    return Ok(emp);
         //}
-        [HttpGet]
-        public async Task<IActionResult> GetByIdAsync()
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetByIdAsync(int id)
         {
-            Employee emp = await _employeeRepository.GetByIdAsync(2);
+            Employee emp = await _employeeRepository.GetByIdAsync(id);
             return Ok(emp);
         }
 
-        [HttpGet("GetALL")]
+        [HttpGet]
         public async Task<IEnumerable<Employee>> GetAllAsync()
         {
             return await _employeeRepository.GetAllAsync();
         }
 
-        [HttpGet("GetOrdered")]
-        public async Task<IEnumerable<Employee>> GetOrdered()
+        //[HttpGet("GetOrdered")]
+        //public async Task<IEnumerable<Employee>> GetOrdered(string str)
+        //{
+        //    return await _employeeRepository.FindAllAsync(b => b.name.Contains(str), b => b.id);
+        //}
+
+        [HttpPost]
+        public IActionResult AddOne(Employee emp)
         {
-            return await _employeeRepository.FindAllAsync(b => b.name.Contains("dutch"), b => b.id);
+            emp.depto = emp.deptID;
+            return Ok(_employeeRepository.Add(emp));
         }
 
-        [HttpPost("AddOne")]
-        public IActionResult AddOne()
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
         {
-            return Ok(_employeeRepository.Add(new Employee { name = "john mariston", age=26, deptID=7,
-                address="city of valentine", dateofbirth="23/8/2088", depto=7, email="john@mariston",
-             phone="21659976656"}));
+            return Ok(await _employeeRepository.Delete(id));
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(int id, Employee emp)
+        {
+            if (id != emp.id)
+            {
+                return BadRequest();
+            }
+            emp.depto = emp.deptID;
+            return Ok(await _employeeRepository.Put(id, emp));
         }
     }
 }

@@ -19,7 +19,7 @@ namespace Modelinterface.Core.Models
         public int age { get; set; }
         public string dateofbirth { get; set; }
 
-        public int depto { get; set; }//non foreign reference to dept 
+        public int depto { get; set; } //non foreign reference to dept 
 
 
         [ForeignKey("dept")]

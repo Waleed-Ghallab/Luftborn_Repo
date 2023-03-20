@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,7 +11,7 @@ namespace Modelinterface.Core.Interfaces
 {
     public interface IBaseRepository <T> where T : class
     {
-        //T GetById(int id);
+        bool GetById(int id);
         Task<T> GetByIdAsync(int id);
         Task<IEnumerable<T>> GetAllAsync();
 
@@ -20,5 +21,10 @@ namespace Modelinterface.Core.Interfaces
         Task<T> Add(T entity);
 
         Task<IEnumerable<T>> AddRange (IEnumerable<T> entities);
+
+        Task<T> Put(int id,T entity);
+        Task<T> Delete(int id);
+
+        
     }
 }
