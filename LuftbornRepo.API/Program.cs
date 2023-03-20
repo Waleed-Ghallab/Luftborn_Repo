@@ -37,7 +37,10 @@ builder.Services.AddControllers().AddNewtonsoftJson(op =>
 });
 
 //register iBaseRepository
-builder.Services.AddTransient(typeof(IBaseRepository<>),typeof(BaseRepository<>)); 
+builder.Services.AddTransient(typeof(IBaseRepository<>),typeof(BaseRepository<>));
+
+//register Unit Of Work
+//builder.Services.AddTransient<IUnitOfWork,UnitOfWork>();
 
 var app = builder.Build();
 
